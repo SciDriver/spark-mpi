@@ -22,7 +22,7 @@ execute_process(
 
 # SET(PYTHON_INSTDIR ${_PYTHON_INSTDIR} CACHE PATH "Installation directory for python module.")
 
-SET(PYTHON_INSTDIR "/home/malitsky/anaconda2/lib/python2.7/site-packages")
+SET(PYTHON_INSTDIR "${ANACONDA2_ROOT_DIR}/lib/python2.7/site-packages")
 
 message("${PYTHON_INSTDIR}")
 message("${CMAKE_INSTALL_PREFIX}")
