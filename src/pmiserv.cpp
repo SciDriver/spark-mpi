@@ -28,10 +28,6 @@ typedef struct { PMISetup pmiinfo; IOLabelSetup labelinfo; } SetupInfo;
 int mypreamble( void *, ProcessState* );
 int mypostamble( void *, void *, ProcessState* );
 
-/* Set printFailure to 1 to get an explanation of the failure reason
-   for each process when a process fails */
-static int printFailure = 0;
-
 // Set usePort to 1 if a host:port should be used 
 // insted of inheriting an FD to a socketpair. 
 static int usePort = 1;
@@ -52,7 +48,6 @@ int myForkProcesses( ProcessWorld *pWorld, char *envp[],
 // A unique ID for each forked process, up to 2 billion.
 // This is global to this file so that MPIE_SetupSingleton
 // and MPIE_ForkProcess can both access it
-
 static       int UniqId = 0; 
 
 
@@ -124,27 +119,6 @@ int main( int argc, char *argv[], char *envp[] )
 	MPIE_KillUniverse( &pUniv );
     }
     
-    /*
-
-    // Wait for all processes to exit and gather information on them.
-    // We do this through the SIGCHLD handler. We also bound the length
-    // of time that we wait to 2 seconds.
-    MPIE_WaitForProcesses( &pUniv, 2 );
-
-    // Compute the return code (max for now) 
-    rc = MPIE_ProcessGetExitStatus( &signaled );
-
-    // Optionally provide detailed information about failed processes 
-    // For now, always print if a process died on an uncaught signal 
-    if ( (rc && printFailure) || signaled) 
-	MPIE_PrintFailureReasons( stderr );
-
-    // If the processes exited normally (or were already gone) but we
-    // had an exceptional exit, such as a timeout, use the erc value 
-    if (!rc && erc) rc = erc;
-
-    */
-
     return( rc );
 }
 
