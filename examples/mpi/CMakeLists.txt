@@ -1,11 +1,5 @@
 
-INCLUDE_DIRECTORIES(${INCLUDE_LIST})
 
-set (CMAKE_CXX_FLAGS " ")
-
-CUDA_ADD_EXECUTABLE(mpi-demo.bin mpi-demo.cu)
-TARGET_LINK_LIBRARIES(mpi-demo.bin ${LIBRARY_LIST})
-INSTALL(TARGETS mpi-demo.bin RUNTIME DESTINATION examples/mpi)
-
+INSTALL(FILES allreduce.py README.txt DESTINATION examples/mpi)
 
 
