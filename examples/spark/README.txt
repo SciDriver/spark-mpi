@@ -4,7 +4,8 @@ The Spark-MPI demo that runs the MPI application on the Spark workers
 
 /opt/spark-mpi/bin/pmiserv -n 4 hello
 
-2. Define the Spark environmental variables for using notebook
+2. Define the Spark environmental variables for using
+the Jupyter Notebook
 
 export PYSPARK_DRIVER_PYTHON='jupyter'
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
