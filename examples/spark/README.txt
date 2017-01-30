@@ -1,4 +1,4 @@
-The Spark-MPI demo that runs the MPI application on the Spark workers
+The Spark-MPI demo that runs the MPI application on Spark workers
 
 1. Start the PMI server
 

@@ -36,6 +36,6 @@ make install
 3. Running applications
 -----------------------------------------------
 
-See the Jupyter notebook in the examples/spark directory
+See Jupyter notebook in the examples/spark directory
 
 
