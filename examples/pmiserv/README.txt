@@ -1,8 +1,11 @@
 The PMIServer-based demo that launches the MPI scripts without Spark:
 
+export PATH=/opt/spark-mpi/bin:$PATH
+which hydra_pmi_proxy
+
 chmod a+x ./launcher.py ./allreduce.py
 
-/opt/spark-mpi/bin/pmiserv -n 2 hello
+pmiserv -n 2 hello
 
 ./launcher.py <PMI Port>
 

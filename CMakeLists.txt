@@ -91,7 +91,6 @@ set(MPI_SRC "$ENV{MPI_SRC}")
 LIST(APPEND INCLUDE_LIST "${MPI_SRC}/include/")
 LIST(APPEND INCLUDE_LIST "${MPI_SRC}/mpl/include")
 LIST(APPEND INCLUDE_LIST "${MPI_SRC}/pmi/simple")
-LIST(APPEND INCLUDE_LIST "${MPI_SRC}/pm/util")
 
 ######################################################
 # target etags/tags
