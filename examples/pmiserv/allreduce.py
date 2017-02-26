@@ -36,3 +36,4 @@ for i in range(10):
     if rank == 0:
         print ("mpi-demo, sum: ", recvbuf[n-1], ", time:", (t2 - t1), " seconds")
 
+MPI.Finalize()

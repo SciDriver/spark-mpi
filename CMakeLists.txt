@@ -11,7 +11,7 @@ endif()
 PROJECT (spark-mpi)
 
 # set (CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}")
-set (CMAKE_INSTALL_PREFIX "/opt/spark-mpi")
+# set (CMAKE_INSTALL_PREFIX "/opt/spark-mpi")
 
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "MPI-oriented extension of the Spark platform")
 SET(CPACK_PACKAGE_VENDOR "Brookhaven National Laboratory")
