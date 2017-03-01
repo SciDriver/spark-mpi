@@ -522,16 +522,29 @@ static HYD_status launch_procs(void)
     
     /* spark-mpi */
     /* if (HYD_pmcd_pmip.user_global.ckpoint_prefix) { */
+    
       using_pmi_port = 1;
+      
+      const char* pmi_port_str = getenv("HYDRA_PROXY_PORT");
+      int pmi_port_str_len = strlen(pmi_port_str);
+      
+      char* pmi_port_range_str;    
+      HYDU_MALLOC(pmi_port_range_str, char *, 2*(pmi_port_str_len+1), status);
+      HYDU_snprintf(pmi_port_range_str, 2*(pmi_port_str_len+1),
+                    "%s:%s", pmi_port_str, pmi_port_str);
+      
       status = HYDU_sock_create_and_listen_portstr(HYD_pmcd_pmip.user_global.iface, 
                                                    NULL, 
-                                                   NULL, 
+                                                   pmi_port_range_str, 
                                                    &pmi_port, 
                                                    pmi_listen_cb,
                                                    NULL);
-        HYDU_dump(stdout, "hydra pmi proxy, PMI PORT: %s\n", pmi_port);
-
-        HYDU_ERR_POP(status, "unable to create PMI port\n");
+      
+      HYDU_FREE(pmi_port_range_str);
+      
+      HYDU_dump(stdout, "hydra pmi proxy, PMI PORT: %s\n", pmi_port);
+ 
+      HYDU_ERR_POP(status, "unable to create PMI port\n");
     /* } */
 
     if (HYD_pmcd_pmip.exec_list->exec[0] == NULL) {     /* Checkpoint restart case */

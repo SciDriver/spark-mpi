@@ -10,11 +10,13 @@ chmod a+x ./launcher.py ./allreduce.py
 
 2. Start the PMI server
 
+export HYDRA_PROXY_PORT=55555
+
 /opt/spark-mpi/bin/pmiserv -n 4 hello
 
 3. Lauch the MPI-based application
 
-./launcher.py <PMI Port>
+./launcher.py <hostname>:HYDRA_PROXY_PORT
 
 4. Stop the PMI proxy
 
