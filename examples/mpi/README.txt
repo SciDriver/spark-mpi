@@ -16,3 +16,11 @@ mpirun -np 4 ./allreduce.py
 --------------------------------------------------------
 On a SLURM-based cluster
 --------------------------------------------------------
+
+1. Customize the sbatch script to your slurm installation
+
+[edit allreduce_sbatch.sh]
+
+2. Submit the batch job
+
+sbatch allreduce_sbatch.sh
