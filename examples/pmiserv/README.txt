@@ -14,7 +14,7 @@ export HYDRA_PROXY_PORT=55555
 
 /opt/spark-mpi/bin/pmiserv -n 4 hello
 
-3. Lauch the MPI-based application
+3. Launch the MPI-based application
 
 ./launcher.py <hostname>:HYDRA_PROXY_PORT
 
