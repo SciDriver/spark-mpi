@@ -28,8 +28,8 @@ On a SLURM-based cluster
 
 1. Customize the sbatch script to your slurm installation
 
-[edit allreduce_pmi_sbatch.sh]
+[edit allreduce_pmiserv_sbatch.sh]
 
 2. Submit the batch job
 
-sbatch allreduce_pmi_sbatch.sh
+sbatch allreduce_pmiserv_sbatch.sh

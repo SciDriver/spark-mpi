@@ -8,22 +8,17 @@
 
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=1
-# #SBATCH --ntasks=4
 
+module load spark-mpi/0.1                                                                          
 scontrol show hostname $SLURM_JOB_NODELIST | paste -d'\n' -s > hosts
-HOSTS=$(scontrol show hostname $SLURM_JOB_NODELIST | paste -d, -s)
-
-### WARNING, Work In Progress!!! incomplete?!?  untested!!!
 
 # Start the PMI server
 export HYDRA_PROXY_PORT=55555
-/opt/spark-mpi/bin/pmiserv -f hosts hello
-
-# I'm not sure we need '-w $HOSTS' on these?!
+pmiserv -f hosts hello &
 
 # Launch the MPI-based application
-srun -w $HOSTS ./allreduce.py
+srun ./allreduce.slurm.py
 
 # Stop the PMI proxy
-srun -w $HOSTS pkill -9 "hydra_pmi_proxy"
+srun pkill "hydra_pmi_proxy"
 
