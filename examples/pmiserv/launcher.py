@@ -19,7 +19,11 @@ def f(id, pmi_port):
 
 if __name__ == '__main__':
 
-   pmi_port = sys.argv[1]
+   # pmi_port = sys.argv[1]
+
+   hostname = os.uname()[1]
+   hydra_proxy_port = os.getenv("HYDRA_PROXY_PORT")
+   pmi_port = hostname + ":" + hydra_proxy_port
 
    for id in range(4):
         p = Process(target=f, args=(id, pmi_port))
