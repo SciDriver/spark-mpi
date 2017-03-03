@@ -25,7 +25,7 @@ LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/pm/pmiserv")
 
 # message("include list: ${INCLUDE_LIST}")
 
-LIST(APPEND LIBRARY_LIST "-lnuma")
+# LIST(APPEND LIBRARY_LIST "-lnuma")
 
 # message("library list: ${LIBRARY_LIST}")
 
