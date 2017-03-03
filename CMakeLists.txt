@@ -65,10 +65,10 @@ include(InstallRequiredSystemLibraries)
 # Boost
 ######################################################
 
-find_package(Boost REQUIRED COMPONENTS system thread)
+# find_package(Boost REQUIRED COMPONENTS system thread)
 
-include_directories(${Boost_INCLUDE_DIRS})
-LIST(APPEND LIBRARY_LIST ${Boost_LIBRARIES})
+# include_directories(${Boost_INCLUDE_DIRS})
+# LIST(APPEND LIBRARY_LIST ${Boost_LIBRARIES})
 
 ######################################################
 # MPI
