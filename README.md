@@ -26,7 +26,7 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 	 ```
 cd <download directory>
 
-./configure --disable-libxml2 --disable-fortran --enable-cxx --prefix=<installation directory>
+./configure --disable-libxml2 --disable-fortran --disable-cxx --prefix=<installation directory>
 make
 sudo make install
 
