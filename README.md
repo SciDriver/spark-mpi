@@ -23,7 +23,7 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 ## Prerequisites
 
 1. Binary and source code of the [MPICH 3.2](https://www.mpich.org/) implementation
-	 ```
+```
 cd <download directory>
 
 ./configure --disable-libxml2 --disable-fortran --disable-cxx --prefix=<installation directory>
