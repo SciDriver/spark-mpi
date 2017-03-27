@@ -1,5 +1,5 @@
 
 
-INSTALL(FILES allreduce.ipynb README.txt DESTINATION examples/spark)
+INSTALL(FILES README.txt DESTINATION examples/spark)
 
 
