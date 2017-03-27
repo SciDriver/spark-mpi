@@ -34,12 +34,14 @@ sudo make install
 export MPI_SRC=<download directory>/src
 ```
 2. MPI Python wrapper, for example [mpi4py 2.0](http://pythonhosted.org/mpi4py/)
-   ```
+
+```
 pip install mpi4py
 ```
 
 3. Binary of the [Spark 2.1](http://spark.apache.org/) platform
-   ```
+
+```
 cd <download directory>
 ./build/mvn -DskipTests clean package
 
