@@ -11,6 +11,6 @@
 #SBATCH --ntasks=4
 
 scontrol show hostname $SLURM_JOB_NODELIST | paste -d'\n' -s > hosts
-mpirun -f hosts ./allreduce.py
+mpiexec -f hosts -n 4 ./allreduce.py
 
 
