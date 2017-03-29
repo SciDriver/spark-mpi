@@ -11,7 +11,7 @@ chmod a+x ./allreduce.py
 
 2. Launch the MPI applications
 
-mpirun -np 4 ./allreduce.py
+mpiexec -n 4 ./allreduce.py
 
 --------------------------------------------------------
 On a SLURM-based cluster
