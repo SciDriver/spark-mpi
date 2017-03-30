@@ -7,7 +7,7 @@ LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/include")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/ui/include")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/ui/mpich")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/ui/utils")
-LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/ml/include")
+# LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/ml/include")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/tools/bootstrap/include")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/tools/bootstrap/external")
 LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/tools/bootstrap/utils")
@@ -35,7 +35,7 @@ set (libmpl_src
   "${HYDRA_SRC}/mpl/src/mplstr.c"
   "${HYDRA_SRC}/mpl/src/mpltrmem.c"
   "${HYDRA_SRC}/mpl/src/mplenv.c"
-  "${HYDRA_SRC}/mpl/src/mplmsg.c"
+#  "${HYDRA_SRC}/mpl/src/mplmsg.c" # mpich
   "${HYDRA_SRC}/mpl/src/mplsock.c"
 )
 
