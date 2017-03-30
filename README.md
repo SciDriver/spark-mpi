@@ -22,31 +22,34 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 
 ## Prerequisites
 
-1. Binary and source code of the [MPICH 3.2](https://www.mpich.org/) implementation
+1. Binary and source code of the [MVAPICH2 2.2](http://mvapich.cse.ohio-state.edu/) implementation
 
 ```
 cd <download directory>
 
-./configure --disable-libxml2 --disable-fortran --disable-cxx --prefix=<installation directory>
+./configure --disable-libxml2 --disable-fortran --prefix=<installation directory>
 make
 sudo make install
 
 export MPI_SRC=<download directory>/src
+
 ```
-2. MPI Python wrapper, for example [mpi4py 2.0](http://pythonhosted.org/mpi4py/)
+2. Python 3.5, for example  [Anaconda3-4.2.0](https://www.continuum.io) (note: Spark 2.1 does not support Python 3.6)
+
+3. MPI Python wrapper, for example [mpi4py 2.0](http://pythonhosted.org/mpi4py/)
 
 ```
 pip install mpi4py
+
 ```
 
-3. Binary of the [Spark 2.1](http://spark.apache.org/) platform
+4. Binary of the [Spark 2.1](http://spark.apache.org/) platform
 
 ```
 cd <download directory>
+export PYSPARK_PYTHON=python3
 ./build/mvn -DskipTests clean package
 
-export PYSPARK_DRIVER_PYTHON='jupyter'
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 ```
 
 ## Installation 
