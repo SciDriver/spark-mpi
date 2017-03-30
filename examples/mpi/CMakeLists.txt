@@ -1,5 +1,5 @@
 
 
-INSTALL(FILES allreduce.py README.txt DESTINATION examples/mpi)
+INSTALL(FILES allreduce.py allreduce_sbatch.sh README.txt DESTINATION examples/mpi)
 
 
