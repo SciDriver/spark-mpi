@@ -32,7 +32,6 @@ make
 sudo make install
 
 export MPI_SRC=<download directory>/src
-
 ```
 2. Python 3.5, for example  [Anaconda3-4.2.0](https://www.continuum.io) (note: Spark 2.1 does not support Python 3.6)
 
@@ -40,16 +39,15 @@ export MPI_SRC=<download directory>/src
 
 ```
 pip install mpi4py
-
 ```
 
 4. Binary of the [Spark 2.1](http://spark.apache.org/) platform
 
 ```
 cd <download directory>
+
 export PYSPARK_PYTHON=python3
 ./build/mvn -DskipTests clean package
-
 ```
 
 ## Installation 
