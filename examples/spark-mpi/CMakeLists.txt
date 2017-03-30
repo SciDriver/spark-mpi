@@ -1,5 +1,5 @@
 
 
-INSTALL(FILES allreduce.ipynb README.txt DESTINATION examples/spark-mpi)
+INSTALL(FILES allreduce.py README.txt DESTINATION examples/spark-mpi)
 
 

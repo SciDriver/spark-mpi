@@ -4,21 +4,17 @@ The Spark-MPI demo that runs the MPI application on Spark workers
 On a single node
 --------------------------------------------------------
 
-1. Define the Spark environmental variables for using
-the Jupyter Notebook
+1. Start the PMI server
 
-export PYSPARK_DRIVER_PYTHON='jupyter'
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+export HYDRA_PROXY_PORT=55555
 
-2. Start the PMI server
+/opt/spark-mpi/bin/pmiserv -n 4 hello &
 
-/opt/spark-mpi/bin/pmiserv -n 4 hello
+2. Submit allreduce.py
 
-3. Run pyspark and edit pmi_port in allreduce.ipynb
+spark-submit ./allreduce.py
 
-pyspark
-
-4. Stop the PMI proxy
+3. Stop the PMI proxy
 
 pkill -9 "hydra_pmi_proxy"
 
