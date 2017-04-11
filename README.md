@@ -11,8 +11,7 @@ the [ doc ](https://github.com/SciDriver/spark-mpi/tree/master/doc)directory) :
 Platforms](https://spark-summit.org/east-2017/events/bringing-hpc-algorithms-to-big-data-platforms/),
 Spark Summit East, Boston, February 7-9, 2017
 *  [Bringing HPC Reconstruction Algorithms to Big Data
-Platforms](http://ieeexplore.ieee.org/document/7747818/),
-Scientific Data Summit (NYSDS), New York, August 14-17, 2016
+Platforms](http://ieeexplore.ieee.org/document/7747818/), NYSDS, New York, August 14-17, 2016
 
 ## Conceptual Demo
 
