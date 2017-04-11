@@ -21,3 +21,11 @@ pkill -9 "hydra_pmi_proxy"
 --------------------------------------------------------
 On a SLURM-based cluster
 --------------------------------------------------------
+
+1. Customize the sbatch script to your slurm installation
+
+[edit allreduce.sh]
+
+2. Submit the batch job
+
+sbatch allreduce.sh
