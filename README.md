@@ -17,7 +17,7 @@ Scientific Data Summit (NYSDS), New York, August 14-17, 2016
 ## Conceptual Demo
 
 The Spark-MPI approach is illustrated within the context of a conceptual demo (located in the
-[examples/spark](https://github.com/SciDriver/spark-mpi/tree/master/examples/spark )
+[examples/spark](https://github.com/SciDriver/spark-mpi/tree/master/examples/spark-mpi )
 directory) which runs the MPI Allreduce method on the Spark workers.
 
 ## Prerequisites
