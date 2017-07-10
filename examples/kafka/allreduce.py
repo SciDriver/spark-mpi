@@ -4,7 +4,7 @@ import os
 from datetime import timedelta, datetime, tzinfo
 import numpy as np
 
-from pyspark import SparkContext, TaskContext
+from pyspark import SparkContext
 
 sc = SparkContext()
 
@@ -16,55 +16,56 @@ pmi_port = hostname + ":" + hydra_proxy_port
 
 partitions = 4
 
+# Prepare a list of environmental variables
+
+env = []
+for id in range(0, partitions):
+    kvs = {
+        'PMI_PORT' : pmi_port,
+        'PMI_ID' : id,
+    }
+    env.append(kvs)
+
 # Create the rdd collection associated with the MPI workers
 
-env = [id for id in range(partitions)]
 rdd = sc.parallelize(env, partitions)
 
 # Define the MPI application
 
 def allreduce(kvs):
-
-    pid = TaskContext.get().partitionId();
-
-    hostname = os.uname()[1]
-    hydra_proxy_port = os.getenv("HYDRA_PROXY_PORT")
-    pmi_port = hostname + ":" + hydra_proxy_port
     
-    os.environ["PMI_PORT"] = pmi_port
-    os.environ["PMI_ID"]   = str(pid)
+     os.environ["PMI_PORT"] = kvs["PMI_PORT"]
+     os.environ["PMI_ID"] = str(kvs["PMI_ID"])
     
-    from mpi4py import MPI
+     from mpi4py import MPI
     
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
+     comm = MPI.COMM_WORLD
+     rank = comm.Get_rank()
    
-    # image
+     # image
 
-    n = 2*1000000
-    sendbuf = np.arange(n, dtype=np.float32)
-    recvbuf = np.arange(n, dtype=np.float32)
+     n = 2*1000000
+     sendbuf = np.arange(n, dtype=np.float32)
+     recvbuf = np.arange(n, dtype=np.float32)
         
-    sendbuf[n-1] = 5.0;
+     sendbuf[n-1] = 5.0;
 
-    t1 = datetime.now()    
-    comm.Allreduce(sendbuf, recvbuf, op=MPI.SUM)     
-    t2 = datetime.now()
+     t1 = datetime.now()    
+     comm.Allreduce(sendbuf, recvbuf, op=MPI.SUM)     
+     t2 = datetime.now()
     
-    out = {
+     out = {
         'rank' : rank,
         'time' : (t2-t1), 
         'sum'  : recvbuf[n-1]
-    }
-    return out
+     }
+     return out
 
 # Run MPI application on Spark workers and collect the results
 
 results = rdd.map(allreduce).collect()
-print ("1st run")
 for out in results:
     print ("rank: ", out['rank'], ", sum: ", out['sum'],
            ", processing time: ", out['time'])
-
 
 
