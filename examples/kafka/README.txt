@@ -1,5 +1,5 @@
-The Kafka-Spark-MPI demo that processes the Kafka topics by
-the MPI application running on Spark workers
+Kafka-Spark-MPI demo that processes the Kafka topics by
+MPI application which runs on Spark workers
 
 --------------------------------------------------------
 On a single node

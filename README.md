@@ -40,14 +40,32 @@ export MPI_SRC=<download directory>/src
 pip install mpi4py
 ```
 
-4. Binary of the [Spark 2.1](http://spark.apache.org/) platform
+4. [Spark 2.2](https://people.apache.org/~pwendell/spark-releases/spark-2.2.0-rc6-docs/)
+version (introducing TaskContext)
 
 ```
-cd <download directory>
+git clone --branch v2.2.0-rc6 https://github.com/apache/spark.git
+cd spark
 
 export PYSPARK_PYTHON=python3
 ./build/mvn -DskipTests clean package
 ```
+
+5. Kafka 0.11 and associated python and spark modules
+
+    5.1 download the kafka distribution, see [quickstart](https://kafka.apache.org/quickstart)
+
+    5.2 install kafka-python
+
+    ```
+    conda install -c conda-forge kafka-python=1.3.3
+    ```
+
+    5.3 update the conf/spark-deafults.conf file of the Spark platform with the following line
+
+    ```
+    spark.driver.extraClassPath <spark path>/external/kafka-0-8-assembly/target/spark-streaming-kafka-0-8-assembly_2.11-2.2.0.jar
+    ```
 
 ## Installation 
 
