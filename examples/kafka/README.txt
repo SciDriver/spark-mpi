@@ -12,24 +12,21 @@ zookeeper-server-start.sh zookeeper.properties
 kafka-server-start.sh server.properties
 kafka-topics.sh --list --zookeeper localhost:2181
 
-2. Start the PMI server
+2. Define the port of the PMI server
 
 export HYDRA_PROXY_PORT=55555
 
-/opt/spark-mpi/bin/pmiserv -n 4 hello &
+3. Submit allreduce_consumer.py
 
-3. Run allreduce_producer.py, check topics
+spark-submit ./allreduce_consumer.py 
+
+4. Run allreduce_producer.py
 
 python allreduce_producer.py
-kafka-topics.sh --list --zookeeper localhost:2181
+python allreduce_producer.py
 
-4. Submit allreduce_consumer.py
+5. Stop the Kafka and Zookeeper servers
 
-spark-submit ./allreduce_consumer.py localhost:2181
-
-5. Stop the PMI proxy, Kafka and Zookeeper servers
-
-pkill -9 "hydra_pmi_proxy"
 kafka-server-stop.sh
 zookeeper-server-stop.sh
 

@@ -11,8 +11,9 @@ partitions = 4
 
 # n = 2*1000000
 n = 2*100000
-
 sendbuf = np.arange(n, dtype=np.float32)
+
+producer.send("topic-init", b'1')
 
 for j in range(partitions):
     topic = "topic-" + str(j)
