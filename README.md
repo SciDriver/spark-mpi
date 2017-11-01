@@ -3,11 +3,11 @@
 The project addresses the existing impedance mismatch between data-intensive and compute-intensive ecosystems
 by extending the [Spark](https://en.wikipedia.org/wiki/Apache_Spark) platform with
 the [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)-based inter-worker communication model
-for supporting HPC applications. The rationale along with a general description are provided in
-the Spark Summit East'17 talk and NYSDS'16 paper (located in
+for supporting HPC applications. The rationale along with a general description are provided in the
+NYSDS papers and the Spark Summit East'17 talk (located in
 the [ doc ](https://github.com/SciDriver/spark-mpi/tree/master/doc)directory) :
 
-* [Building Near-Real-Time Processing Pipelines with the Spark-MPI platform](https://www.bnl.gov/nysds17/files/pdf/program.pdf), NYSDS, New York, August 7-9, 2017
+* [Building Near-Real-Time Processing Pipelines with the Spark-MPI platform](http://ieeexplore.ieee.org/document/8085039/), NYSDS, New York, August 7-9, 2017
 * [Bringing HPC Algorithms to Big Data
 Platforms](https://spark-summit.org/east-2017/events/bringing-hpc-algorithms-to-big-data-platforms/),
 Spark Summit East, Boston, February 7-9, 2017
@@ -43,8 +43,6 @@ export PYSPARK_PYTHON=python3
    ./configure --disable-libxml2 --disable-fortran --prefix=<installation directory>
    make
    sudo make install
-
-   export MPI_SRC=<download directory>/src
    ```
 
    3.2  MPI python wrapper, for example [mpi4py 2.0](http://pythonhosted.org/mpi4py/)
@@ -52,8 +50,6 @@ export PYSPARK_PYTHON=python3
    ```
    pip install mpi4py
    ```
-
-
 
 4. Kafka 0.11 and associated python and spark modules
 
@@ -74,6 +70,8 @@ export PYSPARK_PYTHON=python3
 ## Installation 
 
 ```
+export MPI_SRC=<MVAPICH2 directory>/src
+
 git clone git://github.com/SciDriver/spark-mpi.git
 mkdir build
 

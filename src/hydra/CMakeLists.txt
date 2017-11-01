@@ -133,7 +133,7 @@ set (libhydra_src
    "${HYDRA_SRC}/tools/bootstrap/persist/persist_launch.c"
    "${HYDRA_SRC}/tools/bootstrap/persist/persist_wait.c"
    "${HYDRA_SRC}/tools/ckpoint/ckpoint.c"
-#   "${HYDRA_SRC}/tools/ckpoint/blcr/ckpoint_blcr.c"
+#   "${HYDRA_SRC}/tools/ckpoint/blcr/ckpoint_blcr.c" # BLCR
    "${HYDRA_SRC}/tools/demux/demux.c"
    "${HYDRA_SRC}/tools/demux/demux_poll.c"
    "${HYDRA_SRC}/tools/demux/demux_select.c"
@@ -144,6 +144,7 @@ set (libhydra_src
 
 ADD_LIBRARY(hydra SHARED ${libhydra_src})
 TARGET_LINK_LIBRARIES(hydra ${LIBRARY_LIST})
+# TARGET_LINK_LIBRARIES(hydra ${LIBRARY_LIST} cr) # BLCR
 INSTALL(TARGETS hydra LIBRARY DESTINATION lib)
 
 set (libpm_src
