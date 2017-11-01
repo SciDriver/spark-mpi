@@ -25,6 +25,7 @@ LIST(APPEND INCLUDE_LIST "${HYDRA_SRC}/pm/pmiserv")
 
 # message("include list: ${INCLUDE_LIST}")
 # LIST(APPEND LIBRARY_LIST "-lnuma")
+# LIST(APPEND LIBRARY_LIST "-lOpenCL") # OpenCL
 
 # message("library list: ${LIBRARY_LIST}")
 
@@ -58,6 +59,7 @@ set (libhwloc_embedded_src
   "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-custom.c"
   "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-xml.c"
   "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-xml-nolibxml.c"
+#  "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-opencl.c" # OpenCL
   "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-linux.c"
   "${HYDRA_SRC}/tools/topo/hwloc/hwloc/src/topology-x86.c"
 )
