@@ -9,7 +9,7 @@ the [ doc ](https://github.com/SciDriver/spark-mpi/tree/master/doc)directory) :
 
 * [Building Near-Real-Time Processing Pipelines with the Spark-MPI platform](http://ieeexplore.ieee.org/document/8085039/), NYSDS, New York, August 7-9, 2017
 * [Bringing HPC Algorithms to Big Data
-Platforms](https://spark-summit.org/east-2017/events/bringing-hpc-algorithms-to-big-data-platforms/),
+Platforms](https://databricks.com/session/bringing-hpc-algorithms-to-big-data-platforms),
 Spark Summit East, Boston, February 7-9, 2017
 *  [Bringing HPC Reconstruction Algorithms to Big Data
 Platforms](http://ieeexplore.ieee.org/document/7747818/), NYSDS, New York, August 14-17, 2016
@@ -24,7 +24,7 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 
 1. Python 3.5, for example  [Anaconda3-4.2.0](https://www.continuum.io) (note: Spark 2.1 does not support Python 3.6)
 
-2. [Spark 2.2](https://spark.apache.org/downloads.html) (with PySpark supporting TaskContext)
+2. [Spark 2.2](https://spark.apache.org/downloads.html) 
 
 ```
 download spark
@@ -50,22 +50,6 @@ export PYSPARK_PYTHON=python3
    ```
    pip install mpi4py
    ```
-
-4. Kafka 0.11 and associated python and spark modules
-
-    4.1 download the kafka distribution, see [quickstart](https://kafka.apache.org/quickstart)
-
-    4.2 install kafka-python
-
-    ```
-    conda install -c conda-forge kafka-python=1.3.3
-    ```
-
-    4.3 update the conf/spark-deafults.conf file of the Spark platform with the following line
-
-    ```
-    spark.driver.extraClassPath <spark path>/external/kafka-0-8-assembly/target/spark-streaming-kafka-0-8-assembly_2.11-2.2.0.jar
-    ```
 
 ## Installation 
 
