@@ -9,23 +9,26 @@ import numpy as np
 
 from multiprocessing import Process
 
-def f(id, pmi_port):
+def f(id):
     args = ['./allreduce.py']
+    
     env = {}
-    env["PATH"]     = os.getenv("PATH")
-    env["PMI_ID"]   = str(id)
-    env["PMI_PORT"] = pmi_port 
+    env["PATH"] = os.getenv("PATH")
+    env["PMIX_RANK"]  = str(id)
+
+    with open('pmixsrv.env', 'r') as f:
+        lines = f.read().splitlines() 
+        for line in lines:
+            words = line.split("=")
+            env[words[0]] = words[1]
+
     os.execvpe('./allreduce.py', args, env)
 
 if __name__ == '__main__':
 
    # pmi_port = sys.argv[1]
 
-   hostname = os.uname()[1]
-   hydra_proxy_port = os.getenv("HYDRA_PROXY_PORT")
-   pmi_port = hostname + ":" + hydra_proxy_port
-
    for id in range(4):
-        p = Process(target=f, args=(id, pmi_port))
+        p = Process(target=f, args=(id,))
         p.start()
         

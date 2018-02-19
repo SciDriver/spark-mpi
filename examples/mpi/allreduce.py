@@ -6,21 +6,17 @@ import os
 from datetime import timedelta, datetime, tzinfo
 import numpy as np
 
+print("PMIX_RANK: ", os.getenv("PMIX_RANK"))
+print("OMPI_MCA_orte_local_daemon_uri: ", os.getenv("OMPI_MCA_orte_local_daemon_uri"))
+print("OMPI_MCA_orte_hnp_uri: ", os.getenv("OMPI_MCA_orte_hnp_uri"))
+print("PMIX_NAMESPACE: ", os.getenv("PMIX_NAMESPACE"))
+print("PMIX_SERVER_URI2: ", os.getenv("PMIX_SERVER_URI2"))
+print("PMIX_SERVER_URI21:", os.getenv("PMIX_SERVER_URI21"))
+
 from mpi4py import MPI
-
-pmi_rank = os.getenv("PMI_RANK")
-pmi_fd   = os.getenv("PMI_FD")
-pmi_size = os.getenv("PMI_SIZE")
-
-pmi_port = os.getenv("PMI_PORT")
-pmi_id = os.getenv("PMI_ID")
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
-
-if rank == 0:
-     print ("PMI_RANK: ", pmi_rank, ", PMI_SIZE: ", pmi_size, "PMI_FD: ", pmi_fd)
-     print ("PMI_PORT: ", pmi_port, ", PMI_ID: ", pmi_id)
 
 # image
 

@@ -10,9 +10,7 @@ chmod a+x ./launcher.py ./allreduce.py
 
 2. Start the PMI server
 
-export HYDRA_PROXY_PORT=55555
-
-/opt/spark-mpi/bin/pmiserv -n 4 hello &
+pmixsrv -n 4 ./allreduce.py &
 
 3. Launch the MPI-based application
 
@@ -20,7 +18,7 @@ export HYDRA_PROXY_PORT=55555
 
 4. Stop the PMI proxy
 
-pkill -9 "hydra_pmi_proxy"
+pkill -9 "pmixsrv"
 
 --------------------------------------------------------
 On a SLURM-based cluster

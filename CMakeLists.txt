@@ -83,15 +83,18 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x ${MPI_COMPILE_FLAGS}")
 LIST(APPEND INCLUDE_LIST ${MPI_INCLUDE_PATH})
 LIST(APPEND LIBRARY_LIST ${MPI_LIBRARIES})
 
+FIND_PACKAGE(OMPI REQUIRED)
+LIST(APPEND LIBRARY_LIST ${OMPI_LIBRARIES})
+
 ######################################################
 # MPI SRC
 ######################################################
 
 set(MPI_SRC "$ENV{MPI_SRC}")
 
-LIST(APPEND INCLUDE_LIST "${MPI_SRC}/include/")
-LIST(APPEND INCLUDE_LIST "${MPI_SRC}/mpl/include")
-LIST(APPEND INCLUDE_LIST "${MPI_SRC}/pmi/simple")
+# LIST(APPEND INCLUDE_LIST "${MPI_SRC}/include/")
+# LIST(APPEND INCLUDE_LIST "${MPI_SRC}/mpl/include")
+# LIST(APPEND INCLUDE_LIST "${MPI_SRC}/pmi/simple")
 
 ######################################################
 # target etags/tags
