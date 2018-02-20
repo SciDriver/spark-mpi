@@ -33,28 +33,38 @@ export PYSPARK_PYTHON=python3
 ./build/mvn -DskipTests clean package
 ```
 
-3. [MVAPICH2 2.2](http://mvapich.cse.ohio-state.edu/) and associated python module
+3. [Process Management Interface Exascale (PMIx)](https://github.com/pmix/pmix)
 
-   3.1 Binary and source code of the MVAPICH2 2.2 implementation
+```
+git clone https://github.com/pmix/pmix.git
+./autogen.pl
+./configure --prefix=<installation directory>
+make
+make install
+```
 
-   ```
-   cd <download directory>
+4. [Open MPI](https://github.com/open-mpi/ompi) (with pmix:ext3x)
 
-   ./configure --disable-libxml2 --disable-fortran --prefix=<installation directory>
-   make
-   sudo make install
-   ```
+```
+git clone https://github.com/open-mpi/ompi.git
+./autogen.pl
+./configure --prefix=<installation directory> --with-cuda --with-pmix=<pmix directory> --with-libevent=external
+make
+make install
+```
 
-   3.2  MPI python wrapper, for example [mpi4py 2.0](http://pythonhosted.org/mpi4py/)
+5. MPI python wrapper, for example [mpi4py 3.0](http://mpi4py.readthedocs.io/en/stable/)
 
-   ```
-   pip install mpi4py
-   ```
+ ```
+ wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.0.tar.gz  
+ python setup.py build
+ python setup.py install
+ ```
 
 ## Installation 
 
 ```
-export MPI_SRC=<MVAPICH2 directory>/src
+export MPI_SRC=<Open MPI source directory>
 
 git clone git://github.com/SciDriver/spark-mpi.git
 mkdir build
