@@ -8,31 +8,37 @@ from pyspark import SparkContext, TaskContext
 
 sc = SparkContext()
 
-# Define the address of the PMI server and the number of MPI workers
-
-hostname = os.uname()[1]
-hydra_proxy_port = os.getenv("HYDRA_PROXY_PORT")
-pmi_port = hostname + ":" + hydra_proxy_port
+# Define the number of MPI workers
 
 partitions = 4
 
+# Read the PMIx environmental variables
+
+env = {}
+with open('pmixsrv.env', 'r') as f:
+    lines = f.read().splitlines() 
+    for line in lines:
+        words = line.split("=")
+        env[words[0]] = words[1]
+
 # Create the rdd collection associated with the MPI workers
 
-env = [id for id in range(partitions)]
-rdd = sc.parallelize(env, partitions)
+arg = []
+for id in range(partitions):
+    arg.append(env)
+    
+rdd = sc.parallelize(arg, partitions)
 
 # Define the MPI application
 
-def allreduce(kvs):
+def allreduce(pid, partition):
 
-    pid = TaskContext.get().partitionId();
+    os.environ["PMIX_RANK"] = str(pid)
 
-    hostname = os.uname()[1]
-    hydra_proxy_port = os.getenv("HYDRA_PROXY_PORT")
-    pmi_port = hostname + ":" + hydra_proxy_port
-    
-    os.environ["PMI_PORT"] = pmi_port
-    os.environ["PMI_ID"]   = str(pid)
+    for env in partition:
+        for key in env:
+            print(key, env[key])
+            os.environ[key] = env[key]
     
     from mpi4py import MPI
     
@@ -56,11 +62,11 @@ def allreduce(kvs):
         'time' : (t2-t1), 
         'sum'  : recvbuf[n-1]
     }
-    return out
+    yield out
 
 # Run MPI application on Spark workers and collect the results
 
-results = rdd.map(allreduce).collect()
+results = rdd.mapPartitionsWithIndex(allreduce).collect()
 print ("1st run")
 for out in results:
     print ("rank: ", out['rank'], ", sum: ", out['sum'],

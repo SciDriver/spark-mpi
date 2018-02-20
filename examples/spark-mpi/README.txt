@@ -6,17 +6,15 @@ On a single node
 
 1. Start the PMI server
 
-export HYDRA_PROXY_PORT=55555
-
-/opt/spark-mpi/bin/pmiserv -n 4 hello &
+pmixsrv -n 4 ./allreduce.py &
 
 2. Submit allreduce.py
 
 spark-submit ./allreduce.py
 
-3. Stop the PMI proxy
+3. Stop the PMI server
 
-pkill -9 "hydra_pmi_proxy"
+pkill -9 "pmixsrv"
 
 --------------------------------------------------------
 On a SLURM-based cluster

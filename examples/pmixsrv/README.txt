@@ -16,7 +16,7 @@ pmixsrv -n 4 ./allreduce.py &
 
 ./launcher.py 
 
-4. Stop the PMI proxy
+4. Stop the PMI server
 
 pkill -9 "pmixsrv"
 
