@@ -14,6 +14,7 @@ def f(id):
     
     env = {}
     env["PATH"] = os.getenv("PATH")
+    env["LD_LIBRARY_PATH"] = os.getenv("LD_LIBRARY_PATH")    
     env["PMIX_RANK"]  = str(id)
 
     with open('pmixsrv.env', 'r') as f:
