@@ -22,7 +22,11 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 
 ## Prerequisites
 
-1. Python 3.5, for example  [Anaconda3-4.2.0](https://www.continuum.io) (note: Spark 2.1 does not support Python 3.6)
+1.  [Anaconda3-4.2.0](https://www.continuum.io) with Python 3.5 (note: Spark 2.1 does not support Python 3.6)
+```
+install anaconda
+conda install libgcc
+```
 
 2. [Spark 2.2](https://spark.apache.org/downloads.html) 
 
@@ -64,9 +68,9 @@ make install
 ## Installation 
 
 ```
-export MPI_SRC=<Open MPI source directory>
+export MPI_SRC=<Open MPI build directory>
 
-git clone git://github.com/SciDriver/spark-mpi.git
+git clone https://github.com/SciDriver/spark-mpi.git
 mkdir build
 
 cd build
