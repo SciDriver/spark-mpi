@@ -1,4 +1,4 @@
-The PMIServer-based demo that launches the MPI scripts without Spark.
+The PMI Server-based demo that launches the MPI scripts without Spark.
 
 --------------------------------------------------------
 On a single node
@@ -10,7 +10,9 @@ chmod a+x ./launcher.py ./allreduce.py
 
 2. Start the PMI server
 
-pmixsrv -n 4 ./allreduce.py &
+export OMPI_MCA_mca_base_component_path="<OpenMPI installation>/lib/openmpi:<Spark-MPI installation>/lib"
+
+mpirun -n 4 ./allreduce.py &
 
 3. Launch the MPI-based application
 
@@ -18,10 +20,10 @@ pmixsrv -n 4 ./allreduce.py &
 
 4. Stop the PMI server
 
-pkill -9 "pmixsrv"
+pkill -9 "mpirun"
 
 --------------------------------------------------------
-On a SLURM-based cluster
+On a SLURM-based cluster (Hydra-based version)
 --------------------------------------------------------
 
 1. Customize the sbatch script to your slurm installation

@@ -37,27 +37,15 @@ export PYSPARK_PYTHON=python3
 ./build/mvn -DskipTests clean package
 ```
 
-3. [Process Management Interface Exascale (PMIx)](https://github.com/pmix/pmix)
+3. [Open MPI 3.0.0](https://www.open-mpi.org/software/ompi/v3.0/) 
 
 ```
-git clone https://github.com/pmix/pmix.git
-./autogen.pl
-./configure --prefix=<installation directory>
+./configure --prefix=<installation directory> --with-cuda --with-libevent=external
 make
 make install
 ```
 
-4. [Open MPI](https://github.com/open-mpi/ompi) (with pmix:ext3x)
-
-```
-git clone https://github.com/open-mpi/ompi.git
-./autogen.pl
-./configure --prefix=<installation directory> --with-cuda --with-pmix=<pmix directory> --with-libevent=external
-make
-make install
-```
-
-5. MPI python wrapper, for example [mpi4py 3.0](http://mpi4py.readthedocs.io/en/stable/)
+4. MPI python wrapper, for example [mpi4py 3.0](http://mpi4py.readthedocs.io/en/stable/)
 
  ```
  wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.0.tar.gz  

@@ -256,7 +256,8 @@ static int odls_sparkmpi_fork_local_proc(void *cdptr)
         if((pos = strstr(*envp, "OMPI_MCA_orte_hnp_uri"))) { fprintf(f, "%s\n", *envp++); continue; }
         if((pos = strstr(*envp, "PMIX_NAMESPACE"))) { fprintf(f, "%s\n", *envp++); continue; }
         if((pos = strstr(*envp, "PMIX_SERVER_URI2"))) { fprintf(f, "%s\n", *envp++); continue; }
-        if((pos = strstr(*envp, "PMIX_SERVER_URI21"))) { fprintf(f, "%s\n", *envp++); continue; }
+        /* if((pos = strstr(*envp, "PMIX_SERVER_URI21"))) { fprintf(f, "%s\n", *envp++); continue; } */
+        if((pos = strstr(*envp, "PMIX_DSTORE_ESH_BASE_PATH"))) { fprintf(f, "%s\n", *envp++); continue; }        
         *envp++;
     }
     fclose(f);

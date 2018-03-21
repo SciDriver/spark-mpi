@@ -99,6 +99,7 @@ ENDIF (UNIX OR APPLE)
 # 
 ######################################################
 
+ADD_SUBDIRECTORY(include)
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(examples)
 
