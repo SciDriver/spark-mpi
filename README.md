@@ -22,6 +22,7 @@ directory) which runs the MPI Allreduce method on the Spark workers.
 
 ## Prerequisites
 
+
 1.  [Anaconda3-4.2.0](https://www.continuum.io) with Python 3.5 (note: Spark 2.1 does not support Python 3.6)
 ```
 install anaconda
