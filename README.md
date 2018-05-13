@@ -14,7 +14,7 @@ Spark Summit East, Boston, February 7-9, 2017
 *  [Bringing HPC Reconstruction Algorithms to Big Data
 Platforms](http://ieeexplore.ieee.org/document/7747818/), NYSDS, New York, August 14-17, 2016
 
-## Conceptual Demo 1
+## Conceptual Demo 3
 
 The Spark-MPI approach is illustrated within the context of a conceptual demo (located in the
 [examples/spark-mpi](https://github.com/SciDriver/spark-mpi/tree/master/examples/spark-mpi )
