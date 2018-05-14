@@ -1,5 +1,5 @@
 The MPI-based demo that sums the float arrays of peers using
-the MPI_Allreduce method.
+the MPI_Allreduce method
 
 --------------------------------------------------------
 On a single node
