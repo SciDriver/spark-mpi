@@ -1,4 +1,4 @@
-The PMI Server-based demo that launches the MPI scripts without Spark.
+The PMI Server-based demo that launches the MPI scripts without Spark
 
 --------------------------------------------------------
 On a single node
