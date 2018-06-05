@@ -3,16 +3,16 @@
 The project addresses the existing impedance mismatch between data-intensive and compute-intensive ecosystems
 by extending the [Spark](https://en.wikipedia.org/wiki/Apache_Spark) platform with
 the [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)-based inter-worker communication model
-for supporting HPC applications. The rationale along with a general description are provided in the
-NYSDS papers and the Spark Summit East'17 talk (located in
+for supporting HPC applications. The rationale along with a general description are provided in the arXiv,
+NYSDS paper and Spark Summit East'17 talk (located in
 the [ doc ](https://github.com/SciDriver/spark-mpi/tree/master/doc)directory) :
-
+* [Spark-MPI: Approaching the Fifth Paradigm of Cognitive Applications](http://arxiv.org/abs/1806.01110),
+arXiv:1806.01110, May 16, 2018
 * [Building Near-Real-Time Processing Pipelines with the Spark-MPI platform](http://ieeexplore.ieee.org/document/8085039/), NYSDS, New York, August 7-9, 2017
 * [Bringing HPC Algorithms to Big Data
 Platforms](https://databricks.com/session/bringing-hpc-algorithms-to-big-data-platforms),
 Spark Summit East, Boston, February 7-9, 2017
-*  [Bringing HPC Reconstruction Algorithms to Big Data
-Platforms](http://ieeexplore.ieee.org/document/7747818/), NYSDS, New York, August 14-17, 2016
+
 
 ## Conceptual Demo 
 
